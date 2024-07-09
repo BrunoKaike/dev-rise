@@ -59,24 +59,24 @@ export default function Example() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <ClerkLoading>
-                  <Loader className="h-5 w-5 animate-spin text-muted-foreground" />
-                </ClerkLoading>
-                <ClerkLoaded>
-                  <SignedIn>
-                    <UserButton afterSignOutUrl="/" />
-                  </SignedIn>
+            <ClerkLoading>
+              <Loader className="h-5 w-5 animate-spin text-muted-foreground" />
+            </ClerkLoading>
+            <ClerkLoaded>
+              <SignedIn>
+                <UserButton afterSignOutUrl="/" />
+              </SignedIn>
 
-                  <SignedOut>
-                    <SignUpButton
-                      mode="modal"
-                      afterSignInUrl="/about"
-                      afterSignUpUrl="/about"
-                    >
-                    <button className="text-sm font-semibold leading-6 text-gray-900">Login</button>
-                    </SignUpButton>
-                  </SignedOut>
-                </ClerkLoaded>
+              <SignedOut>
+                <SignUpButton
+                  mode="modal"
+                  afterSignInUrl="/about"
+                  afterSignUpUrl="/about"
+                >
+                <button className="text-sm font-semibold leading-6 text-gray-900">Login</button>
+                </SignUpButton>
+              </SignedOut>
+            </ClerkLoaded>
           </div>
         </nav>
         <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -158,20 +158,57 @@ export default function Example() {
             <p className="mt-6 text-lg leading-8 text-gray-600">
             Explore uma vasta biblioteca de desafios de programação criados para todos os níveis. Melhore suas habilidades e compartilhe seu progresso com outros desenvolvedores.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Explore os desafios
-              </a>
-              <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                Saiba mais <span aria-hidden="true">→</span>
-              </a>
-            </div>
+            <ClerkLoading>
+              <Loader className="h-5 w-5 animate-spin text-muted-foreground" />
+            </ClerkLoading>
+            <ClerkLoaded>
+              <SignedOut>
+                <SignUpButton
+                  mode="modal"
+                  afterSignInUrl="/learn"
+                  afterSignUpUrl="/learn"
+                >
+                  <div className="mt-10 flex items-center justify-center gap-x-6">
+                    <a
+                      href="#"
+                      className="w-full max-w-[330px] rounded-md bg-indigo-600 h-12 px-8 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                      Comece agora
+                    </a>
+                  </div>
+                </SignUpButton>
+
+                <SignInButton
+                  mode="modal"
+                  afterSignInUrl="/learn"
+                  afterSignUpUrl="/learn"
+                >
+                  <div className="mt-5 flex items-center justify-center gap-x-6">
+                    <a
+                      href="#"
+                      className="w-full max-w-[330px] rounded-md bg-transparent h-12 px-8 py-2.5 text-sm font-semibold text-slate-500 shadow-sm hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    >
+                      Eu já tenho uma conta
+                    </a>
+                  </div>
+                </SignInButton>
+              </SignedOut>
+
+              <SignedIn>
+                <div className="mt-5 flex items-center justify-center gap-x-6">
+                  <a
+                    href="#"
+                    className="w-full max-w-[330px] rounded-md bg-indigo-600 h-12 px-8 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Continue aprendendo
+                  </a>
+                </div>
+              </SignedIn>
+            </ClerkLoaded>
           </div>
         </div>
       </div>
     </div>
+    
   )
 }
